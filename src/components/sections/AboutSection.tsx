@@ -8,8 +8,8 @@ export default function AboutSection() {
   const { t } = useTranslation()
 
   return (
-    <section className="h-full w-full flex items-center justify-center px-5 sm:px-8 lg:px-12">
-      <div className="max-w-5xl w-full">
+    <section className="h-full w-full overflow-y-auto md:overflow-hidden flex flex-col scroll-smooth overscroll-contain px-5 sm:px-8 lg:px-12">
+      <div className="max-w-5xl w-full mx-auto my-auto py-20 md:py-0">
 
         <motion.div
           initial={{ opacity: 0, y: 20 }}

@@ -28,12 +28,11 @@ export default function ExperienceSection() {
   const { t } = useTranslation()
   const jobs = t('experience.jobs', { returnObjects: true }) as Job[]
   const [expanded, setExpanded] = useState<number | null>(null)
-
   const toggle = (i: number) => setExpanded(prev => prev === i ? null : i)
 
   return (
-    <section className="h-full w-full flex items-center justify-center px-5 sm:px-8 lg:px-12">
-      <div className="max-w-4xl w-full">
+    <section className="h-full w-full overflow-y-auto md:overflow-hidden flex flex-col scroll-smooth overscroll-contain px-5 sm:px-8 lg:px-12">
+      <div className="max-w-4xl w-full mx-auto my-auto py-20 md:py-0">
 
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="text-center mb-8 sm:mb-10">
           <p className="font-mono text-xs tracking-[0.25em] uppercase text-violet-600 dark:text-violet-400 mb-3 sm:mb-4">
@@ -46,12 +45,12 @@ export default function ExperienceSection() {
 
         <div className="relative">
           {/* Timeline line */}
-          <div className="absolute left-6 sm:left-8 top-3 bottom-3 w-px bg-linear-to-b from-violet-500 via-violet-400 to-transparent" />
+          <div className="absolute left-[22px] sm:left-8 top-3 bottom-3 w-px bg-gradient-to-b from-violet-500 via-violet-400 to-transparent" />
 
           <div className="space-y-4 sm:space-y-5">
             {jobs.map((job, i) => {
               const isOpen = expanded === i
-              const hasAchievements = job.achievements?.length > 0
+              const hasAch = job.achievements?.length > 0
 
               return (
                 <motion.div
@@ -59,34 +58,28 @@ export default function ExperienceSection() {
                   initial={{ opacity: 0, x: -24 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 0.1 + i * 0.15, duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-                  className="relative pl-14 sm:pl-20"
+                  className="relative pl-12 sm:pl-20"
                 >
-                  {/* Dot — positioned at left-5 on mobile (within pl-14), left-6.5 on sm+ */}
-                  <div className="absolute left-[18px] sm:left-[26px] top-5 w-4 h-4 sm:w-5 sm:h-5 rounded-full bg-violet-600 dark:bg-violet-400 border-4 border-white dark:border-slate-950 shadow-sm" />
+                  {/* Dot */}
+                  <div className="absolute left-[14px] sm:left-[26px] top-5 w-4 h-4 sm:w-5 sm:h-5 rounded-full bg-violet-600 dark:bg-violet-400 border-4 border-white dark:border-slate-950 shadow-sm" />
 
                   <div className="bg-slate-50 dark:bg-slate-900 rounded-2xl border border-slate-100 dark:border-slate-800 hover:border-violet-200 dark:hover:border-violet-800 transition-all duration-200">
-
                     <div className="p-4 sm:p-6">
-                      {/* Header row */}
-                      <div className="flex flex-wrap items-start justify-between gap-2 sm:gap-3 mb-2 sm:mb-3">
-                        <div>
-                          <h3 className="font-semibold text-slate-900 dark:text-white text-sm sm:text-base">{job.role}</h3>
-                          <div className="flex items-center gap-2 mt-1 sm:mt-1.5">
-                            <a
-                              href={job.companyUrl}
-                              target="_blank"
-                              rel="noopener noreferrer"
+                      <div className="flex flex-wrap items-start justify-between gap-2 mb-2 sm:mb-3">
+                        <div className="min-w-0">
+                          <h3 className="font-semibold text-slate-900 dark:text-white text-sm sm:text-base leading-snug">{job.role}</h3>
+                          <div className="flex items-center gap-2 mt-1 flex-wrap">
+                            <a href={job.companyUrl} target="_blank" rel="noopener noreferrer"
                               className="text-xs sm:text-sm text-violet-600 dark:text-violet-400 font-medium hover:underline"
-                              onClick={e => e.stopPropagation()}
-                            >
+                              onClick={e => e.stopPropagation()}>
                               {job.company}
                             </a>
-                            <span className="text-xs text-slate-400 dark:text-slate-500 bg-slate-100 dark:bg-slate-800 px-2 py-0.5 rounded-full">
+                            <span className="text-xs text-slate-400 dark:text-slate-500 bg-slate-100 dark:bg-slate-800 px-2 py-0.5 rounded-full shrink-0">
                               {job.type}
                             </span>
                           </div>
                         </div>
-                        <span className="text-xs font-medium text-slate-500 dark:text-slate-400 bg-slate-100 dark:bg-slate-800 px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-full whitespace-nowrap">
+                        <span className="text-xs font-medium text-slate-500 dark:text-slate-400 bg-slate-100 dark:bg-slate-800 px-2.5 py-1 rounded-full whitespace-nowrap shrink-0">
                           {job.period}
                         </span>
                       </div>
@@ -101,7 +94,7 @@ export default function ExperienceSection() {
                         ))}
                       </div>
 
-                      {hasAchievements && (
+                      {hasAch && (
                         <button
                           onClick={() => toggle(i)}
                           className="mt-3 sm:mt-4 flex items-center gap-1.5 text-xs font-medium text-slate-500 dark:text-slate-400 hover:text-violet-600 dark:hover:text-violet-400 transition-colors cursor-pointer touch-manipulation"
@@ -113,7 +106,7 @@ export default function ExperienceSection() {
                     </div>
 
                     <AnimatePresence initial={false}>
-                      {isOpen && hasAchievements && (
+                      {isOpen && hasAch && (
                         <motion.div
                           initial={{ opacity: 0, height: 0 }}
                           animate={{ opacity: 1, height: 'auto' }}
@@ -143,14 +136,12 @@ export default function ExperienceSection() {
                         </motion.div>
                       )}
                     </AnimatePresence>
-
                   </div>
                 </motion.div>
               )
             })}
           </div>
         </div>
-
       </div>
     </section>
   )

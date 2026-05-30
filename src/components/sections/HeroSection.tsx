@@ -14,8 +14,8 @@ export default function HeroSection({ onNext }: SectionProps) {
   const { t } = useTranslation()
 
   return (
-    <section className="h-full w-full flex items-center justify-center px-5 sm:px-8 lg:px-12">
-      <div className="max-w-5xl w-full text-center">
+    <section className="h-full w-full overflow-y-auto md:overflow-hidden flex flex-col scroll-smooth overscroll-contain px-5 sm:px-8 lg:px-12">
+      <div className="max-w-5xl w-full mx-auto my-auto py-20 md:py-0 text-center">
 
         <motion.p {...item(0.05)} className="font-mono text-xs sm:text-sm tracking-[0.25em] uppercase text-violet-600 dark:text-violet-400 mb-3 sm:mb-5">
           {t('hero.greeting')}
@@ -23,7 +23,7 @@ export default function HeroSection({ onNext }: SectionProps) {
 
         <motion.h1
           {...item(0.15)}
-          className="text-5xl sm:text-7xl lg:text-9xl font-extrabold tracking-tight text-slate-900 dark:text-white mb-3 sm:mb-5 leading-none"
+          className="text-[2.75rem] sm:text-7xl lg:text-9xl font-extrabold tracking-tight text-slate-900 dark:text-white mb-3 sm:mb-5 leading-tight break-words hyphens-auto"
         >
           {t('hero.name')}
         </motion.h1>
@@ -61,7 +61,7 @@ export default function HeroSection({ onNext }: SectionProps) {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.4, duration: 0.8 }}
-          className="mt-10 sm:mt-16 flex flex-col items-center gap-2 text-slate-400 dark:text-slate-600"
+          className="mt-10 sm:mt-14 flex flex-col items-center gap-2 text-slate-400 dark:text-slate-600"
         >
           <span className="text-xs tracking-widest uppercase">explore</span>
           <motion.div
