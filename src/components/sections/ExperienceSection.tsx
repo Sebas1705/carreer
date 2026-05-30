@@ -6,6 +6,7 @@ interface Job {
   company: string
   period: string
   type: string
+  desc: string
   projects: string[]
 }
 
@@ -19,7 +20,7 @@ export default function ExperienceSection() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="text-center mb-12"
+          className="text-center mb-10"
         >
           <p className="font-mono text-xs tracking-[0.25em] uppercase text-violet-600 dark:text-violet-400 mb-3">
             {t('nav.experience')}
@@ -44,7 +45,7 @@ export default function ExperienceSection() {
                 <div className="absolute left-6.5 top-5 w-5 h-5 rounded-full bg-violet-600 dark:bg-violet-400 border-4 border-white dark:border-slate-950 shadow-sm" />
 
                 <div className="bg-slate-50 dark:bg-slate-900 rounded-2xl p-6 border border-slate-100 dark:border-slate-800 hover:border-violet-200 dark:hover:border-violet-800 transition-all duration-200">
-                  <div className="flex flex-wrap items-start justify-between gap-3 mb-4">
+                  <div className="flex flex-wrap items-start justify-between gap-3 mb-2">
                     <div>
                       <h3 className="font-semibold text-slate-900 dark:text-white">{job.role}</h3>
                       <div className="flex items-center gap-2 mt-1">
@@ -58,6 +59,7 @@ export default function ExperienceSection() {
                       {job.period}
                     </span>
                   </div>
+                  <p className="text-sm text-slate-500 dark:text-slate-400 mb-4 leading-relaxed">{job.desc}</p>
                   <div className="flex flex-wrap gap-2">
                     {job.projects.map(p => (
                       <span

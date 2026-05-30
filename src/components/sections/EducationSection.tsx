@@ -5,6 +5,7 @@ interface EduItem {
   degree: string
   school: string
   period: string
+  detail: string
   icon: string
 }
 
@@ -12,7 +13,17 @@ interface Cert {
   name: string
   issuer: string
   date: string
+  desc: string
+  url: string
 }
+
+const ExternalLinkIcon = () => (
+  <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+    <polyline points="15 3 21 3 21 9" />
+    <line x1="10" y1="14" x2="21" y2="3" />
+  </svg>
+)
 
 export default function EducationSection() {
   const { t } = useTranslation()
@@ -51,7 +62,10 @@ export default function EducationSection() {
                 <div className="min-w-0">
                   <p className="font-semibold text-slate-900 dark:text-white text-sm leading-snug">{item.degree}</p>
                   <p className="text-violet-600 dark:text-violet-400 text-xs mt-1">{item.school}</p>
-                  <p className="text-slate-400 dark:text-slate-500 text-xs mt-1">{item.period}</p>
+                  <p className="text-slate-400 dark:text-slate-500 text-xs mt-0.5">{item.period}</p>
+                  {item.detail && (
+                    <p className="text-slate-400 dark:text-slate-500 text-xs mt-1 leading-relaxed">{item.detail}</p>
+                  )}
                 </div>
               </motion.div>
             ))}
@@ -63,23 +77,34 @@ export default function EducationSection() {
             </p>
             <div className="space-y-3">
               {certs.map((cert, i) => (
-                <motion.div
+                <motion.a
                   key={i}
+                  href={cert.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   initial={{ opacity: 0, x: 24 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 0.2 + i * 0.1, duration: 0.5, ease: [0.22, 1, 0.36, 1] as const }}
-                  className="flex items-center gap-4 bg-slate-50 dark:bg-slate-900 rounded-xl p-4 border border-slate-100 dark:border-slate-800 hover:border-violet-200 dark:hover:border-violet-800 transition-all duration-200"
+                  className="flex items-start gap-4 bg-slate-50 dark:bg-slate-900 rounded-xl p-4 border border-slate-100 dark:border-slate-800 hover:border-violet-300 dark:hover:border-violet-700 hover:shadow-md hover:shadow-violet-500/5 transition-all duration-200 group"
                 >
                   <div className="w-9 h-9 rounded-lg bg-violet-100 dark:bg-violet-900/30 flex items-center justify-center text-base shrink-0">
                     🏆
                   </div>
-                  <div className="min-w-0">
-                    <p className="font-medium text-slate-900 dark:text-white text-sm truncate">{cert.name}</p>
-                    <p className="text-xs text-slate-500 dark:text-slate-400">
+                  <div className="min-w-0 flex-1">
+                    <div className="flex items-center gap-1.5">
+                      <p className="font-medium text-slate-900 dark:text-white text-sm group-hover:text-violet-600 dark:group-hover:text-violet-400 transition-colors truncate">
+                        {cert.name}
+                      </p>
+                      <span className="text-slate-400 dark:text-slate-500 shrink-0">
+                        <ExternalLinkIcon />
+                      </span>
+                    </div>
+                    <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">
                       {cert.issuer} · {cert.date}
                     </p>
+                    <p className="text-xs text-slate-400 dark:text-slate-500 mt-1 leading-relaxed">{cert.desc}</p>
                   </div>
-                </motion.div>
+                </motion.a>
               ))}
             </div>
           </div>
