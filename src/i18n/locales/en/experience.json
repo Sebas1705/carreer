@@ -3,37 +3,6 @@
     "title": "Experience",
     "see_achievements": "View achievements",
     "hide_achievements": "Hide",
-    "achievements_label": "Key achievements",
-    "jobs": [
-      {
-        "role": "Junior Full Stack & Mobile Developer",
-        "company": "Solusoft",
-        "companyUrl": "https://www.solusoft.es/",
-        "period": "March 2025 – Present",
-        "type": "Hybrid",
-        "desc": "Development and maintenance of full stack and mobile applications. Implementing new features and continuous improvement following agile methodologies and clean, modular architectures.",
-        "projects": ["AGEDI System", "Sisley System", "Iberext App", "EPDM Music Portal"],
-        "achievements": [
-          "Maintenance and continuous improvement of the AGEDI enterprise management system",
-          "Maintenance and continuous improvement of Sisley frontend and backend",
-          "Continued development of Iberext mobile app, expanding fire prevention systems management features",
-          "Full development of EPDM mobile app – Music Portal (published on Google Play Store)"
-        ]
-      },
-      {
-        "role": "Full Stack & Mobile Developer Intern",
-        "company": "Solusoft",
-        "companyUrl": "https://www.solusoft.es/",
-        "period": "October 2024 – February 2025",
-        "type": "Hybrid",
-        "desc": "Supervised learning and development in full stack and mobile projects. Contribution to feature development and application maintenance.",
-        "projects": ["AGEDI System", "Sisley System", "Iberext App"],
-        "achievements": [
-          "Implemented new features across multiple AGEDI projects",
-          "Maintenance of Sisley frontend and backend project",
-          "Built Iberext mobile app from scratch — migrated and extended from a legacy Windows tablet version for fire prevention systems management"
-        ]
-      }
-    ]
+    "achievements_label": "Key achievements"
   }
 }

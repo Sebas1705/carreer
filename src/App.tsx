@@ -1,4 +1,5 @@
 import { AnimatePresence, motion } from 'framer-motion'
+import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useTheme } from './hooks/useTheme'
 import { useSection } from './hooks/useSection'
@@ -13,6 +14,7 @@ import ExperienceSection from './components/sections/ExperienceSection'
 import ProjectsSection from './components/sections/ProjectsSection'
 import EducationSection from './components/sections/EducationSection'
 import ContactSection from './components/sections/ContactSection'
+import CVGenerator from './components/CVGenerator'
 
 const SECTIONS = [
   HeroSection,
@@ -59,6 +61,7 @@ export default function App() {
   const { theme, toggle: toggleTheme } = useTheme()
   const { current, direction, navigate, next, prev } = useSection()
   const { i18n, t } = useTranslation()
+  const [showCV, setShowCV] = useState(false)
 
   const toggleLang = () => i18n.changeLanguage(i18n.language.startsWith('es') ? 'en' : 'es')
   const CurrentSection = SECTIONS[current]
@@ -93,7 +96,7 @@ export default function App() {
           className="absolute inset-x-0 top-0 bottom-0 md:inset-0 pb-14 md:pb-0"
         >
           <SectionDecor sectionKey={SECTION_KEYS[current]} />
-          <CurrentSection onNext={next} onPrev={prev} />
+          <CurrentSection onNext={next} onPrev={prev} onOpenCV={current === SECTIONS.length - 1 ? () => setShowCV(true) : undefined} />
         </motion.div>
       </AnimatePresence>
 
@@ -170,6 +173,9 @@ export default function App() {
           <ChevronRight />
         </button>
       </div>
+
+      {/* ── CV Generator modal ── */}
+      {showCV && <CVGenerator onClose={() => setShowCV(false)} />}
     </div>
   )
 }

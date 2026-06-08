@@ -23,6 +23,7 @@ export function useSection() {
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
+      if (document.querySelector('[data-modal]')) return
       if (e.key === 'ArrowRight' || e.key === 'ArrowDown') next()
       if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') prev()
     }
@@ -33,6 +34,14 @@ export function useSection() {
   useEffect(() => {
     const onWheel = (e: WheelEvent) => {
       if (Math.abs(e.deltaY) < 30) return
+      if (document.querySelector('[data-modal]')) return
+      const scrollable = (e.target as HTMLElement).closest('[data-scrollable]') as HTMLElement | null
+      if (scrollable) {
+        const atBottom = scrollable.scrollTop + scrollable.clientHeight >= scrollable.scrollHeight - 4
+        const atTop = scrollable.scrollTop <= 4
+        if (e.deltaY > 0 && !atBottom) return
+        if (e.deltaY < 0 && !atTop) return
+      }
       e.deltaY > 0 ? next() : prev()
     }
     window.addEventListener('wheel', onWheel, { passive: true })
@@ -41,10 +50,17 @@ export function useSection() {
 
   useEffect(() => {
     let startX = 0
-    const onTouchStart = (e: TouchEvent) => { startX = e.touches[0].clientX }
+    let startY = 0
+    const onTouchStart = (e: TouchEvent) => {
+      startX = e.touches[0].clientX
+      startY = e.touches[0].clientY
+    }
     const onTouchEnd = (e: TouchEvent) => {
-      const diff = startX - e.changedTouches[0].clientX
-      if (Math.abs(diff) > 60) diff > 0 ? next() : prev()
+      if (document.querySelector('[data-modal]')) return
+      const dx = startX - e.changedTouches[0].clientX
+      const dy = startY - e.changedTouches[0].clientY
+      // Only treat as horizontal swipe if predominantly horizontal
+      if (Math.abs(dx) > 60 && Math.abs(dx) > Math.abs(dy)) dx > 0 ? next() : prev()
     }
     window.addEventListener('touchstart', onTouchStart, { passive: true })
     window.addEventListener('touchend', onTouchEnd, { passive: true })

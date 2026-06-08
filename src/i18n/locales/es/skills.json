@@ -2,27 +2,13 @@
   "skills": {
     "title": "Habilidades",
     "soft": "Habilidades Blandas",
-    "tab_languages": "Lenguajes",
-    "tab_frameworks": "Frameworks",
-    "tab_tools": "Herramientas",
-    "tab_databases": "Bases de Datos",
+    "tab_languages":    "Lenguajes",
+    "tab_frameworks":   "Frameworks",
+    "tab_tools":        "Herramientas",
+    "tab_databases":    "Bases de Datos",
     "tab_architecture": "Arquitectura",
-    "tab_other": "IDEs, SO e IA",
+    "tab_other":        "IDEs, SO e IA",
     "show_more": "+{{count}} más",
-    "show_less": "Mostrar menos",
-    "softList": [
-      "Trabajo en equipo",
-      "Comunicación",
-      "Resolución de problemas",
-      "Adaptabilidad",
-      "Proactividad",
-      "Gestión del tiempo",
-      "Pensamiento crítico",
-      "Aprendizaje continuo",
-      "Atención al detalle",
-      "Creatividad",
-      "Empatía",
-      "Resiliencia"
-    ]
+    "show_less": "Mostrar menos"
   }
 }

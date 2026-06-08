@@ -1,5 +1,11 @@
 import { motion } from 'framer-motion'
 import { useTranslation } from 'react-i18next'
+import { usePortfolioData } from '../../context/PortfolioDataContext'
+import { localize } from '../../lib/localize'
+import { useLang } from '../../hooks/useLang'
+import SectionWrapper from '../ui/SectionWrapper'
+import SectionHeader from '../ui/SectionHeader'
+import type { SectionProps } from '../../types'
 
 const GitHubIcon = () => (
   <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
@@ -17,58 +23,71 @@ const CodewarsIcon = () => (
   </svg>
 )
 
-export default function ContactSection() {
+export default function ContactSection({ onOpenCV }: SectionProps) {
   const { t } = useTranslation()
+  const lang = useLang()
+  const { personal } = usePortfolioData()
+  const { social, email, location } = personal
 
   return (
-    <section className="h-full w-full overflow-y-auto md:overflow-hidden flex flex-col scroll-smooth overscroll-contain px-5 sm:px-8 lg:px-12">
-      <div className="max-w-2xl w-full mx-auto my-auto py-20 md:py-0 text-center">
+    <SectionWrapper maxWidth="max-w-2xl" className="text-center">
+      <motion.div initial={{ opacity: 0, scale: 0.8 }} animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] as const }} className="text-5xl sm:text-6xl mb-5 sm:mb-7">
+        👋
+      </motion.div>
 
-        <motion.div initial={{ opacity: 0, scale: 0.8 }} animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] as const }} className="text-5xl sm:text-6xl mb-5 sm:mb-7">
-          👋
-        </motion.div>
+      <SectionHeader navKey="nav.contact" titleKey="contact.title" className="mb-3 sm:mb-4" />
 
-        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }} className="mb-3 sm:mb-4">
-          <p className="font-mono text-xs tracking-[0.25em] uppercase text-violet-600 dark:text-violet-400 mb-3 sm:mb-4">
-            {t('nav.contact')}
-          </p>
-          <h2 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 dark:text-white tracking-tight">
-            {t('contact.title')}
-          </h2>
-        </motion.div>
+      <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.2 }}
+        className="text-slate-500 dark:text-slate-400 mb-8 sm:mb-10 max-w-xs sm:max-w-sm mx-auto text-sm sm:text-base leading-relaxed">
+        {t('contact.subtitle')}
+      </motion.p>
 
-        <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.2 }}
-          className="text-slate-500 dark:text-slate-400 mb-8 sm:mb-10 max-w-xs sm:max-w-sm mx-auto text-sm sm:text-base leading-relaxed">
-          {t('contact.subtitle')}
-        </motion.p>
-
-        {/* Social buttons — wrap nicely on all sizes */}
-        <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3 }}
-          className="flex flex-wrap gap-2 sm:gap-3 justify-center mb-8 sm:mb-10">
-          <a href="mailto:sebssgarcia502580@gmail.com"
-            className="px-5 sm:px-7 py-2.5 sm:py-3 bg-violet-600 hover:bg-violet-700 text-white rounded-full font-semibold transition-all duration-200 hover:scale-105 active:scale-95 shadow-lg shadow-violet-500/30 text-sm touch-manipulation">
-            {t('contact.email_cta')}
-          </a>
-          <a href="https://github.com/Sebas1705" target="_blank" rel="noopener noreferrer"
+      <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3 }}
+        className="flex flex-wrap gap-2 sm:gap-3 justify-center mb-8 sm:mb-10">
+        {/* Email */}
+        <a href={`mailto:${email}`}
+          className="px-5 sm:px-7 py-2.5 sm:py-3 bg-violet-600 hover:bg-violet-700 text-white rounded-full font-semibold transition-all duration-200 hover:scale-105 active:scale-95 shadow-lg shadow-violet-500/30 text-sm touch-manipulation">
+          {t('contact.email_cta')}
+        </a>
+        {/* Social links — rendered dynamically from personal.json */}
+        {social.github && (
+          <a href={social.github} target="_blank" rel="noopener noreferrer"
             className="flex items-center gap-2 px-5 sm:px-7 py-2.5 sm:py-3 border border-slate-200 dark:border-slate-700 rounded-full font-semibold hover:border-violet-400 dark:hover:border-violet-500 hover:text-violet-600 dark:hover:text-violet-400 transition-all duration-200 hover:scale-105 active:scale-95 text-sm touch-manipulation">
             <GitHubIcon />GitHub
           </a>
-          <a href="https://www.linkedin.com/in/sebastián-ramiro-entrerrios-garcía-b1a713217/" target="_blank" rel="noopener noreferrer"
+        )}
+        {social.linkedin && (
+          <a href={social.linkedin} target="_blank" rel="noopener noreferrer"
             className="flex items-center gap-2 px-5 sm:px-7 py-2.5 sm:py-3 border border-slate-200 dark:border-slate-700 rounded-full font-semibold hover:border-violet-400 dark:hover:border-violet-500 hover:text-violet-600 dark:hover:text-violet-400 transition-all duration-200 hover:scale-105 active:scale-95 text-sm touch-manipulation">
             <LinkedInIcon />LinkedIn
           </a>
-          <a href="https://www.codewars.com/users/Sebas1705" target="_blank" rel="noopener noreferrer"
+        )}
+        {social.codewars && (
+          <a href={social.codewars} target="_blank" rel="noopener noreferrer"
             className="flex items-center gap-2 px-5 sm:px-7 py-2.5 sm:py-3 border border-slate-200 dark:border-slate-700 rounded-full font-semibold hover:border-violet-400 dark:hover:border-violet-500 hover:text-violet-600 dark:hover:text-violet-400 transition-all duration-200 hover:scale-105 active:scale-95 text-sm touch-manipulation">
             <CodewarsIcon />Codewars
           </a>
-        </motion.div>
+        )}
+      </motion.div>
 
-        <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.4 }}
-          className="text-sm text-slate-400 dark:text-slate-500 flex items-center justify-center gap-1.5">
-          <span>📍</span>{t('contact.location')}
-        </motion.p>
-      </div>
-    </section>
+      <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.4 }}
+        className="text-sm text-slate-400 dark:text-slate-500 flex items-center justify-center gap-1.5 mb-6">
+        <span>📍</span>
+        {localize(location, lang)}
+      </motion.p>
+
+      {onOpenCV && (
+        <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.5 }}>
+          <button
+            onClick={onOpenCV}
+            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-dashed border-violet-400 dark:border-violet-600 text-violet-600 dark:text-violet-400 text-sm font-medium hover:bg-violet-50 dark:hover:bg-violet-950/30 transition-all duration-200 hover:scale-105 active:scale-95 cursor-pointer touch-manipulation"
+          >
+            <span>📄</span>
+            {lang === 'es' ? 'Generar CV adaptado' : 'Generate tailored CV'}
+          </button>
+        </motion.div>
+      )}
+    </SectionWrapper>
   )
 }

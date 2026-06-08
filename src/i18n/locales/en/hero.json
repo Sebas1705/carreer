@@ -1,10 +1,1 @@
-{
-  "hero": {
-    "greeting": "Hi, I'm",
-    "name": "Sebastián García",
-    "role": "Full Stack & Mobile Developer",
-    "tagline": "Full stack and mobile engineer: design fast frontends, solid APIs and production-ready mobile experiences.",
-    "cta_work": "View my work",
-    "cta_contact": "Contact me"
-  }
-}
+{ "hero": { "cta_work": "View my work", "cta_contact": "Contact me" } }

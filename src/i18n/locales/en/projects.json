@@ -4,93 +4,10 @@
     "view_code": "View code",
     "view_demo": "Live demo",
     "filter_work": "Work",
-    "filter_academic": "Featured",
+    "filter_featured": "Featured",
     "context_work": "Work",
     "context_academic": "Academic",
     "context_personal": "Personal",
-    "work": [
-      {
-        "id": "agedi",
-        "name": "AGEDI System",
-        "context": "work",
-        "desc": "Enterprise management platform for AGEDI. Business logic, dashboards and reporting with Power BI.",
-        "long_desc": "Full-stack enterprise management platform built with C# / .NET and SQL Server. Includes Azure Data Studio integration, Power BI dashboards for reporting, and a web frontend. Maintained and improved with new features following agile methodologies.",
-        "tags": ["C#", ".NET", "SQL Server", "Azure", "Power BI", "JavaScript"],
-        "github": null,
-        "demo": null
-      },
-      {
-        "id": "sisley",
-        "name": "Sisley System",
-        "context": "work",
-        "desc": "Web application and backend for Sisley content management using MVC architecture.",
-        "long_desc": "Content management system built with C# / .NET following the MVC pattern, backed by SQL Server and deployed on Azure. Responsible for feature development and continuous maintenance of both frontend and backend layers.",
-        "tags": ["C#", ".NET", "SQL Server", "Azure", "MVC"],
-        "github": null,
-        "demo": null
-      },
-      {
-        "id": "iberext",
-        "name": "Iberext System",
-        "context": "work",
-        "desc": "Android mobile app for fire prevention systems management, migrated from a legacy Windows tablet version.",
-        "long_desc": "Built from scratch in Kotlin with Jetpack Compose, migrating and extending an existing Windows tablet application. Connects to a C# / .NET + SQL Server backend. Implements multimodular clean architecture with Firebase integration.",
-        "tags": ["Kotlin", "Jetpack Compose", "C#", ".NET", "Firebase", "Clean Architecture"],
-        "github": null,
-        "demo": null
-      },
-      {
-        "id": "epdm",
-        "name": "EPDM – Music Portal",
-        "context": "work",
-        "desc": "Android mobile app for managing music content with rights controlled by AGEDI. Published on Play Store.",
-        "long_desc": "Native Android app built with Kotlin and Jetpack Compose for the AGEDI Music Portal. Manages protected music content, playback and user rights. Backend powered by C# / .NET and SQL Server with Firebase for real-time features. Published on Google Play Store.",
-        "tags": ["Kotlin", "Jetpack Compose", "C#", ".NET", "Firebase", "SQL Server"],
-        "github": null,
-        "demo": "https://play.google.com/store/apps/details?id=es.solusoft.epdm"
-      }
-    ],
-    "featured": [
-      {
-        "id": "youknow",
-        "name": "YouKnow",
-        "context": "academic",
-        "desc": "Android social network app for educational games and chat with full gamification system.",
-        "long_desc": "Bachelor's final project. Full-featured Android app integrating real-time Firebase Firestore, Auth and Storage. Users create study groups, challenge friends to quizzes, earn XP points and climb leaderboards. Built with Kotlin, Jetpack Compose and MVVM/MVI architecture.",
-        "tags": ["Kotlin", "Jetpack Compose", "Firebase", "MVVM", "MVI", "Figma"],
-        "github": "https://github.com/Sebas1705/YouKnow",
-        "demo": null
-      },
-      {
-        "id": "vpslocalorchestrator",
-        "name": "Local VPS Orchestrator",
-        "context": "academic",
-        "desc": "REST API to orchestrate local VPS resources: metrics, automation and service management on Linux.",
-        "long_desc": "Built for the AI Development Master's. A Node.js + Express + TypeScript REST API that monitors CPU, memory and disk metrics, manages Docker containers and schedules automated tasks. Persists data in MongoDB and is fully containerised with Docker Compose.",
-        "tags": ["Node.js", "Express", "TypeScript", "Docker", "MongoDB", "Jest"],
-        "github": "https://github.com/Sebas1705/VPSLocalOrchestrator",
-        "demo": null
-      },
-      {
-        "id": "portfolio",
-        "name": "Personal Portfolio",
-        "context": "academic",
-        "desc": "This portfolio (previous version): Astro + Node.js, deployed on a self-hosted VPS with CI/CD and automated tests.",
-        "long_desc": "Multi-language Astro website with 14 supported locales. Deployed on a self-hosted VPS with Docker Compose, Nginx Proxy Manager, automated Playwright e2e tests and Vitest unit tests. Includes CI/CD with error recognition and automatic deployment on push.",
-        "tags": ["Astro", "TypeScript", "Tailwind CSS", "Docker", "Vitest", "Playwright"],
-        "github": "https://github.com/Sebas1705/my-portfolio",
-        "demo": "https://portfolio.amksandbox.cloud/en/"
-      },
-      {
-        "id": "codewars",
-        "name": "Codewars Katas",
-        "context": "personal",
-        "desc": "Repository with solutions to Codewars katas in multiple languages: Kotlin, C#, Java, JavaScript, Python, Bash…",
-        "long_desc": "Ongoing personal repo focused on sharpening algorithmic thinking. Covers sorting, dynamic programming, graph traversal, string manipulation and more across Kotlin, C#, Java, JavaScript, Python, Bash and TypeScript.",
-        "tags": ["Kotlin", "C#", "Java", "JavaScript", "Python", "Bash", "TypeScript"],
-        "github": "https://github.com/Sebas1705/Codewars",
-        "demo": null
-      }
-    ]
+    "click_hint": "Tap a card to read more"
   }
 }

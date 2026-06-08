@@ -1,0 +1,37 @@
+{
+  "name": "Sebastián Entrerrios García",
+  "greeting":  { "en": "Hi, I'm",                     "es": "Hola, soy" },
+  "role":      { "en": "Full Stack & Mobile Developer", "es": "Desarrollador Full Stack & Móvil" },
+  "tagline":   {
+    "en": "Full stack and mobile engineer: design fast frontends, solid APIs and production-ready mobile experiences.",
+    "es": "Ingeniero full stack y móvil: diseño frontends rápidos, APIs sólidas y experiencias móviles listas para producción."
+  },
+  "bio": {
+    "en": "Based in Madrid, Spain. I build digital products with care — from native mobile apps to full-stack web systems.",
+    "es": "Con base en Madrid, España. Construyo productos digitales con cuidado — desde apps móviles nativas hasta sistemas web full-stack."
+  },
+  "email":    "sebssgarcia502580@gmail.com",
+  "location": { "en": "Madrid, Spain", "es": "Madrid, España" },
+  "social": {
+    "github":   "https://github.com/Sebas1705",
+    "linkedin": "https://www.linkedin.com/in/sebastián-ramiro-entrerrios-garcía-b1a713217/",
+    "codewars": "https://www.codewars.com/users/Sebas1705"
+  },
+  "pillars": [
+    {
+      "icon": "🔭",
+      "title": { "en": "Curiosity",       "es": "Curiosidad" },
+      "desc":  { "en": "I stay current with the latest tech developments and love exploring new ideas and tools.", "es": "Me mantengo al día con los últimos avances tecnológicos y disfruto explorando nuevas ideas y herramientas." }
+    },
+    {
+      "icon": "⚡",
+      "title": { "en": "Constancy",       "es": "Constancia" },
+      "desc":  { "en": "I sustain effort on complex, long-term projects, pushing through challenges with dedication.", "es": "Mantengo el esfuerzo en proyectos complejos y a largo plazo, superando desafíos con dedicación." }
+    },
+    {
+      "icon": "🎯",
+      "title": { "en": "Responsibility",  "es": "Responsabilidad" },
+      "desc":  { "en": "I deliver professional work with commitment, meeting standards with attention to detail.", "es": "Entrego trabajo profesional con compromiso, cumpliendo estándares con atención al detalle." }
+    }
+  ]
+}

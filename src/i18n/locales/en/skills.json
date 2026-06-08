@@ -2,27 +2,13 @@
   "skills": {
     "title": "Skills",
     "soft": "Soft Skills",
-    "tab_languages": "Languages",
-    "tab_frameworks": "Frameworks",
-    "tab_tools": "Tools & DevOps",
-    "tab_databases": "Databases & Cloud",
+    "tab_languages":    "Languages",
+    "tab_frameworks":   "Frameworks",
+    "tab_tools":        "Tools & DevOps",
+    "tab_databases":    "Databases & Cloud",
     "tab_architecture": "Architecture",
-    "tab_other": "IDEs, OS & AI",
+    "tab_other":        "IDEs, OS & AI",
     "show_more": "+{{count}} more",
-    "show_less": "Show less",
-    "softList": [
-      "Teamwork",
-      "Communication",
-      "Problem Solving",
-      "Adaptability",
-      "Proactivity",
-      "Time Management",
-      "Critical Thinking",
-      "Continuous Learning",
-      "Attention to Detail",
-      "Creativity",
-      "Empathy",
-      "Resilience"
-    ]
+    "show_less": "Show less"
   }
 }

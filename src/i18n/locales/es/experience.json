@@ -3,37 +3,6 @@
     "title": "Experiencia",
     "see_achievements": "Ver logros",
     "hide_achievements": "Ocultar",
-    "achievements_label": "Logros clave",
-    "jobs": [
-      {
-        "role": "Junior Desarrollador Full Stack & Móvil",
-        "company": "Solusoft",
-        "companyUrl": "https://www.solusoft.es/",
-        "period": "Marzo 2025 – Presente",
-        "type": "Híbrido",
-        "desc": "Desarrollo y mantenimiento de aplicaciones full stack y móviles. Implementación de nuevas funcionalidades y mejora continua siguiendo metodologías ágiles y arquitecturas limpias y modulares.",
-        "projects": ["Sistema AGEDI", "Sistema Sisley", "App Iberext", "Portal Musical EPDM"],
-        "achievements": [
-          "Mantenimiento y mejora continua del sistema empresarial AGEDI",
-          "Mantenimiento y mejora continua del frontend y backend de Sisley",
-          "Continuación del desarrollo de la app móvil Iberext, ampliando las funcionalidades de gestión de sistemas contra incendios",
-          "Desarrollo completo de la app móvil EPDM – Portal de la Música (publicada en Google Play Store)"
-        ]
-      },
-      {
-        "role": "Prácticas Desarrollador Full Stack & Móvil",
-        "company": "Solusoft",
-        "companyUrl": "https://www.solusoft.es/",
-        "period": "Octubre 2024 – Febrero 2025",
-        "type": "Híbrido",
-        "desc": "Aprendizaje y desarrollo bajo supervisión en proyectos full stack y móviles. Contribución al desarrollo de nuevas funcionalidades y mantenimiento de aplicaciones.",
-        "projects": ["Sistema AGEDI", "Sistema Sisley", "App Iberext"],
-        "achievements": [
-          "Implementé nuevas funcionalidades en varios proyectos para AGEDI",
-          "Mantenimiento del frontend y backend de Sisley",
-          "Desarrollo desde cero de la app móvil para Iberext — migrada y ampliada desde la versión legacy para tablet Windows"
-        ]
-      }
-    ]
+    "achievements_label": "Logros clave"
   }
 }
