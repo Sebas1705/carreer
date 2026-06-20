@@ -33,6 +33,7 @@ jobs:
         env:
           # Change /carreer/ to /your-repo-name/ if the repo has a different name
           VITE_BASE_PATH: /carreer/
+          VITE_CAREER_API_URL: https://career-api.sebas1705.workers.dev
 
       - uses: actions/upload-pages-artifact@v3
         with:
