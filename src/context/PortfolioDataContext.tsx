@@ -130,7 +130,7 @@ const PortfolioContext = createContext<PortfolioContextValue>({
 const API_BASE = (import.meta.env.VITE_CAREER_API_URL as string | undefined)?.replace(/\/$/, '')
   ?? 'https://career-api.sebas1705.workers.dev'
 
-const CACHE_KEY = 'portfolio_data_v3'
+const CACHE_KEY = 'portfolio_data_v4'
 
 // ── API response → portfolio shape adapters ───────────────────────────────────
 
@@ -211,7 +211,7 @@ function adaptEducation(eduRows: any[], certRows: any[]): { items: RawEduItem[];
       school: r.school,
       period: r.period,
       detail: r.detail,
-      icon:   r.icon ?? '🎓',
+      icon:   ({ graduation: '🎓', university: '🎓', school: '🏫', master: '🎓' } as Record<string, string>)[r.icon] ?? r.icon ?? '🎓',
     })),
     certs: certRows.map(r => ({
       name:   r.name,
