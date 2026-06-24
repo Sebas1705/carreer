@@ -10,10 +10,10 @@ import { SkillChipsSkeleton } from '../ui/Skeleton'
 
 const GROUPS = [
   {
-    id: 'mobile',
-    cats: ['Android', 'iOS', 'Multiplatform'],
-    labelEn: 'Mobile & Multiplatform',
-    labelEs: 'Móvil y Multiplataforma',
+    id: 'languages',
+    cats: ['languages'],
+    labelEn: 'Languages',
+    labelEs: 'Lenguajes',
     accent:  'bg-violet-500',
     header:  'text-violet-600 dark:text-violet-400',
     border:  'border-violet-100 dark:border-violet-900/40',
@@ -21,10 +21,10 @@ const GROUPS = [
     low:     'bg-slate-50 dark:bg-slate-900 text-slate-500 dark:text-slate-500 border-slate-100 dark:border-slate-800/40',
   },
   {
-    id: 'backend',
-    cats: ['Backend'],
-    labelEn: 'Backend',
-    labelEs: 'Backend',
+    id: 'frameworks',
+    cats: ['frameworks'],
+    labelEn: 'Frameworks & Libraries',
+    labelEs: 'Frameworks',
     accent:  'bg-indigo-500',
     header:  'text-indigo-600 dark:text-indigo-400',
     border:  'border-indigo-100 dark:border-indigo-900/40',
@@ -33,7 +33,7 @@ const GROUPS = [
   },
   {
     id: 'tools',
-    cats: ['Tools', 'DevOps'],
+    cats: ['tools'],
     labelEn: 'Tools & DevOps',
     labelEs: 'Herramientas',
     accent:  'bg-slate-500',
@@ -44,7 +44,7 @@ const GROUPS = [
   },
   {
     id: 'clouddb',
-    cats: ['Cloud'],
+    cats: ['databases', 'cloud'],
     labelEn: 'Cloud & Databases',
     labelEs: 'Cloud & Bases de Datos',
     accent:  'bg-sky-500',
@@ -55,7 +55,7 @@ const GROUPS = [
   },
   {
     id: 'arch',
-    cats: ['Architecture'],
+    cats: ['architecture', 'methodologies'],
     labelEn: 'Architecture & Methods',
     labelEs: 'Arquitectura y Metodologías',
     accent:  'bg-emerald-500',
@@ -66,7 +66,7 @@ const GROUPS = [
   },
   {
     id: 'ai',
-    cats: ['AI'],
+    cats: ['ai', 'ides'],
     labelEn: 'AI & Environment',
     labelEs: 'IA y Entorno',
     accent:  'bg-amber-500',
